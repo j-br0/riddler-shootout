@@ -1,0 +1,32 @@
+from random import randint
+
+def penalty():
+    if randint(1,4) == 1:
+        return False
+    else:
+        return True
+
+def shootout():
+    x = 0
+    y = 0
+    for i in range(5):
+        if penalty():
+            x += 1
+        if penalty():
+            y += 1
+    # print x, y
+    if x == y:
+        return True
+
+def montecarlo(x):
+    count = 0
+    for i in range(x):
+        if shootout():
+            count += 1
+    count = float(count)
+    print count / x
+
+montecarlo(100000)
+montecarlo(100000)
+montecarlo(100000)
+montecarlo(1000000)
